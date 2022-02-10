@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Sony Remote
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center"><img src="https://github.com/markshyzer/remote/blob/main/screenshot.png" width="300"></p>
 
-## Available Scripts
+This is a React refactor of my [virtual remote](https://github.com/markshyzer/remote), which uses Sony's IRCC-IP protocol to send commands to any post-2016 Sony Bravia TV from any device on the same wifi network.
 
-In the project directory, you can run:
+### Setup
 
-### `npm start`
+Note: Some browsers take issue with the cross-origin requests required to communicate with your TV, which may mean adjusting your security settings. If you'd rather not, the easiest way around this is to save the page to your machine and open the local copy.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The first time you use the remote you'll need to enter your TV's IP address and pre-shared key. Tap the &#9881; to open the settings menu. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To find your TV's IP address select [HOME] on your TV and go to Settings -> Network -> Advanced settings -> Network status -> IP address. Find or set your TV's pre-shared key by going to [HOME] -> Settings -> Network -> Home network setup -> IP control -> Authentication / Pre-Shared Key. (This may vary slightly by model. See [Sony's documentation](https://pro-bravia.sony.net/develop/integrate/ip-control/index.html#ip-control-authentication).)
 
-### `npm test`
+Your IP address and Pre-shared Key will be saved in your browser for the next time you use the remote. (Your browser may discard your saved settings after a while)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Click &#9881; to close the settings menu. Click &#8286;&#8285;&#8286; to toggle between Full View and Compact View.
 
-### `npm run build`
+### On-Screen Keyboard Input
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The text box at the bottom of the screen takes text input from your device and can 'type' it into an on-screen keyboard. To use it, navigate to the on-screen keyboard, making sure that the cursor on-screen is placed on the key indicated in the box to the left of the input. Then type as you normally would. The remote will handle the rest.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Limitations & Known Issues
+The IRCC-IP protocol can only send a limited number of commands and receives no feedback. There is no way to send text information directly, or to confirm what has been received, so the keyboard input works by navigating its own map of the on-screen keyboard using the arrow commands the same way a human user would.  
+Currently only the Netflix search keyboard layout has been modeled.  
+The remote receives a confirmation that a command was received, but has no way of knowing that it has been executed by the TV app. As a partial solution, the remote pauses briefly between successive commands, but without making that wait interminably long it is still possible that a slow-running process on the TV may cause commands to be skipped. If this happens, use the arrow keys to move the on-screen cursor to the key indicated in the box to the left of the input box. Or simply clear the on-screen text manually and Refresh the remote in your browser.  
+Navigating directly from the 'space' key to the 'delete' key will throw the cursor out of sync.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### To-Do
+- Error handling
+- Update Keyboard class to handle various key shapes
+- Add additional keyboard layouts
+- Allow user to set delay duration
+- Allow additional button selection & layout customization
+- Investigate a non-skeuomorphic design
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### See Also
+Sony's [IRCC-IP documentation](https://pro-bravia.sony.net/develop/integrate/ircc-ip/overview/index.html)
