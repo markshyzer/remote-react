@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,212 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+
+
+
+/* .remote {
+  background-color: red;
+} */
+
+body {
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+
 }
+
+.remote {
+  background-color: #333333;
+  max-width: 320px;
+  min-height: 100vh;
+  box-sizing: content-box; 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  color: white;
+  /* justify-content: center; */
+}
+
+p {
+  padding: 0 30px;
+  text-transform: none;
+}
+
+.input-text {
+  margin: 0 10% 10px 10%;
+  background-color: grey;
+  width: 80%;
+  height: 30px;
+}
+
+.section {
+  max-width: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.label {
+  width: 100%;
+  padding: 5px 0 5px 10px;
+  margin: 5px 0;
+  border-top: 1px solid grey;
+}
+
+.empty {
+  width: 82px;
+  margin: 5px;
+  }
+
+
+.button {
+  padding: 8px 0;
+  background-color: #444444;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  width: 80px;
+  margin: 5px;
+  text-align: center;
+  box-shadow: 2px 2px 4px rgba(5, 5, 5, 0.75);
+  height: 20px;
+
+}
+
+.button:hover {
+  cursor: pointer;
+  /* background-color: #111111; */
+  opacity: .5;
+}
+
+.small {
+  width: 57px;
+  font-size: x-small;
+  height: 15px;
+}
+
+.paddleUp {
+  margin: 5px 30px 0 30px;
+  border-bottom: 1px solid #333333;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  height: 30px;
+  width: 60px;
+  font-size: x-large;
+  text-align: center;
+}
+
+.paddleDown {
+  margin: 0 30px 5px 30px;
+  border-top: none;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  height: 30px;
+  width: 60px;
+  font-size: x-large;
+  text-align: center;
+}
+
+.emoji {
+  color: transparent;
+  font-size: xx-large;
+  text-shadow: 0 0 0 grey;
+  text-align: center;
+}
+
+.status {
+  text-align: center;  
+  height: 40px;
+  color: #DDDDDD;
+  opacity: 1;
+  /* overflow: visible; */
+  /* transition: opacity 2s; */
+}
+
+.hide {
+  text-align: center;  
+  height: 40px;
+  color: #DDDDDD;
+  opacity: 0;
+  transition: opacity 3s;
+}
+
+#menu{
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.red {
+  background-color: rgb(200, 0, 0);
+}
+
+.blue {
+  background-color: steelblue;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: steelblue;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-hover:hover {
+  pointer-events: none;
+}
+
+.invisible  {
+  height: 0;
+  /* margin: 0; */
+  padding: 0;
+  visibility: hidden;
+  /* display: none; */
+}
+
+.add-remove{
+  width: 15px;
+  height: 15px;
+  background-color: darkgray;
+  border-radius: 10px;
+  z-index: 100;
+  border: thin solid black;
+  font-size: small;
+  color: black;
+}
+
+.greyed {
+  opacity: .30;
+}
+
+.wrapper {
+  display: flex; margin-top: 15px; margin-bottom: 40px;
+}
+
+#current-value {
+  font-size:large; background-color:inherit; box-shadow:none; margin-left: 27px;
+}
+#string-input {
+  margin:0; margin-top: 5px; font-family:inherit;
+}
+
+#clear {
+  margin-right: 27px;
+}
+
+
+
+
