@@ -1,5 +1,3 @@
-// import './TextInput.css';
-
 import { useEffect, useState } from "react"
 
 class Keyboard {
@@ -21,7 +19,7 @@ class Keyboard {
                 position = [index, found]
                 return position
             } else {
-                return 'Character not found in keyboard'
+                return 'not found'
             }
         });
         return position
@@ -67,6 +65,8 @@ class Keyboard {
             m.reverse()
         }
         m.push('Confirm')
+        this.position = this.find(character)
+        this.string = this.string + character
         return m
     }
 }
@@ -81,17 +81,11 @@ const keyboard = new Keyboard( [
     ['5', '6', '7', '8', '9', '0'],
 ], 'a')
 
+function TextInput (props){
+    const [input, setInput] = useState(null)
+    const [busy, setBusy] = useState(false)
+    let stringInput = document.getElementById('string-input')
 
-
-
-function TextInput(props) {
-    const [input, setInput] = useState('gosh')
-    const [sending, setSending] = useState(false)
-    // function clearRemoteInput(){
-    //     keyboard.string = ''
-    //     stringInput.value = ''
-    // }
-    
     // async function clearTVInput(){
     //     const l = keyboard.string.length
     //     await sendMoves(keyboard.getMoves('del'))
@@ -101,18 +95,7 @@ function TextInput(props) {
     //     }
     // }
 
-    function handleTextInput(e){ 
-        console.log(e.target.value)
-        if (e.target.value){
-            console.log('got some input')
-            setInput(e.target.value)
-            // stringInput.removeEventListener('input', handleTextInput)
-            // processText()
-        }
-    }
-
     const starterPromise = Promise.resolve(null);
-
     let sendMoves = async (moves) => {
         await moves.reduce(
             (p, move, i) => p.then(() => props.sendCommand(move)),
@@ -120,41 +103,28 @@ function TextInput(props) {
             );
         }
 
-    async function processText(e){
-        const text = (e.target.value)
-        if (e.target.value){
-            console.log('got some input', e.target.value)
-
-            console.log(text)
-            setSending(true)
-        const current_character = text[keyboard.string.length]
-        await sendMoves(keyboard.getMoves(current_character))
-        keyboard.position = keyboard.find(current_character)
-        keyboard.string = keyboard.string + current_character
-        // text.textContent=keyboard.keyValue(keyboard.position)
+    async function processText(){
+        const text = (stringInput.value)
         if (text.length > keyboard.string.length){
-            console.log('comparison true')
-            processText()
-        } else {
-            // stringInput.addEventListener('input', handleTextInput)
+            const current_character = text[keyboard.string.length]
+            await sendMoves(keyboard.getMoves(current_character)).then(processText)
+        } 
+        return false 
         }
-        setSending(false)
+
+useEffect(()=> {
+
+    if (!busy && input){
+        setBusy(true)
+        processText().then(res => setBusy(res))
     }
-    }
-    // useEffect(() => {
-    //     console.log("doing something on the text input")
-    //     console.log(input, input.length)
-    //     processText(input)
-    // }, [input])
-
-
-
+}, [input])
 
   return (
     <div className='section' id='keyboard-input'>
         <div className='wrapper'>
-        <div className='button no-hover' id='current-value'></div>
-        <input className='input-text' id='string-input' type="text" onChange={sending? undefined : (e) => processText(e)}></input>
+        <div className='button no-hover' id='current-value'>{}</div>
+        <input className='input-text' id='string-input' type="text" onChange={(e) => setInput(e.target.value)}></input>
         <div className='button' id='clear'>&#9746;</div>
         </div>
     </div>

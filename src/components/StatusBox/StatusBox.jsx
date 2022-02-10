@@ -5,7 +5,7 @@ function StatusBox(props) {
 
     useEffect(() => {
         setVisibility(true)
-        setTimeout(() => {setVisibility(false)}, 3000)
+        setTimeout(setVisibility, 3000, false)
       }, [props.message])
 
   return (  

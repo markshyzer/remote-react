@@ -12,7 +12,7 @@ const RemoteContextProvider = (props) => {
     fullViewSetting: true,
     displaySettings: false,
     toggleSetting: (property, value) => {
-      console.log('Toggle Triggered')
+      // console.log('Toggle Triggered')
       setSettings(
         {...settings, [property]: value}
       );
@@ -183,7 +183,7 @@ const RemoteContextProvider = (props) => {
   
     let [buttons, setButtons] = useState(standardButtons)
 
-  console.log('SETTINGS', settings)
+  // console.log('SETTINGS', settings)
   return (
     <RemoteContext.Provider value={{settings, code_list, buttons, setButtons}}>
       {props.children}

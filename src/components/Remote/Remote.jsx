@@ -9,15 +9,16 @@ import { RemoteContext } from "../../App";
 
 function Remote(props) {
   const {code_list}= useContext(RemoteContext)
-  console.log(code_list)
+  // console.log(code_list)
+
   function wait(ms, value) {
     return new Promise(resolve => setTimeout(resolve, ms, value));
   }
     
     async function sendCommand(command, delay=350, display=true) {
-      console.log('about to wait')
+      // console.log('about to wait to send', command)
       await wait(delay)
-      console.log('waiting')
+      // console.log('waited to send,', command)
       new Promise ((resolve) => {
         const tv_ip = localStorage.getItem('IP')
         // const tv_url = `http://192.168.100.100/sony/IRCC`
@@ -34,7 +35,7 @@ function Remote(props) {
             </u:X_SendIRCC>
           </s:Body>
         </s:Envelope>`;
-        console.log('about to fetch')
+        // console.log('about to fetch')
         fetch(tv_url, {
             method: 'POST', 
             body: data,
@@ -54,13 +55,13 @@ function Remote(props) {
     }
 
 
-  console.log('remote', props.message)
+  // console.log('remote', props.message)
   return (
     <div className='remote'>
       <Menu message={props.message}/>
       {/* <Settings></Settings> */}
       <Section setMessage={props.setMessage} sendCommand={sendCommand}/>     
-      <TextInput sendCommand={sendCommand}/>
+      <TextInput sendCommand={sendCommand} setMessage={props.setMessage}/>
     </div>
       
   );
