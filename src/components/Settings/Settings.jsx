@@ -17,7 +17,6 @@ function Settings() {
   useEffect(() => {
     window.localStorage.setItem('IP', tv_ip);
     window.localStorage.setItem('key', preshared_key)
-    console.log('setitem')
   })
 
   return (
