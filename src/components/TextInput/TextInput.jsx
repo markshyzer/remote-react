@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-class Keyboard {
+class KeyboardClass {
     constructor(layout, start_key){
         this.layout = layout
         this.start_key = start_key
@@ -71,7 +71,7 @@ class Keyboard {
     }
 }
 
-const keyboard = new Keyboard( [
+const Keyboard = new KeyboardClass( [
     [' ', ' ', ' ', 'del', 'del', 'del'],
     ['a', 'b', 'c', 'd', 'e', 'f'],
     ['g', 'h', 'i', 'j', 'k', 'l'],
@@ -85,15 +85,7 @@ function TextInput (props){
     const [input, setInput] = useState(null)
     const [busy, setBusy] = useState(false)
     let stringInput = document.getElementById('string-input')
-
-    // async function clearTVInput(){
-    //     const l = keyboard.string.length
-    //     await sendMoves(keyboard.getMoves('del'))
-    //     keyboard.position = keyboard.find('del')
-    //     for (let i = 0; i < l; i++){
-    //         await sendCommand('Confirm', delay=600, display=false)
-    //     }
-    // }
+    const [c, setC] = useState(Keyboard.start_key)
 
     const starterPromise = Promise.resolve(null);
     let sendMoves = async (moves) => {
@@ -105,9 +97,12 @@ function TextInput (props){
 
     async function processText(){
         const text = (stringInput.value)
-        if (text.length > keyboard.string.length){
-            const current_character = text[keyboard.string.length]
-            await sendMoves(keyboard.getMoves(current_character)).then(processText)
+        if (text.length > Keyboard.string.length){
+            const current_character = text[Keyboard.string.length]
+            await sendMoves(Keyboard.getMoves(current_character))
+            .then(() => {
+                setC(current_character)
+                processText()})
         } 
         return false 
         }
@@ -122,9 +117,8 @@ useEffect(()=> {
   return (
     <div className='section' id='keyboard-input'>
         <div className='wrapper'>
-        <div className='button no-hover' id='current-value'>{}</div>
+        <div className='button no-hover' id='current-value'>{c}</div>
         <input className='input-text' id='string-input' type="text" onChange={(e) => setInput(e.target.value)}></input>
-        <div className='button' id='clear'>&#9746;</div>
         </div>
     </div>
   );

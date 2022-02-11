@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { RemoteContext } from "../../App";
 
 
@@ -23,9 +23,7 @@ function Button({element, sendCommand, number}) {
           ((settings.fullViewSetting || element.compactView)? '': 'invisible')} 
         id={element.command} 
         onClick={handleClick}>{element.icon}
-        
         {settings.displaySettings? <div className='inCompactIcon'>{element.compactView? '\u2705' : '\u26D4'}</div> : null }        
-        
       </div>
       
   );
