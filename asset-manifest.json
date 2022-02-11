@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/markshyzer/remote-react/static/css/main.e814bf23.css",
-    "main.js": "/markshyzer/remote-react/static/js/main.f2e1b3f9.js",
-    "static/js/787.f245bcc0.chunk.js": "/markshyzer/remote-react/static/js/787.f245bcc0.chunk.js",
-    "index.html": "/markshyzer/remote-react/index.html",
-    "main.e814bf23.css.map": "/markshyzer/remote-react/static/css/main.e814bf23.css.map",
-    "main.f2e1b3f9.js.map": "/markshyzer/remote-react/static/js/main.f2e1b3f9.js.map",
-    "787.f245bcc0.chunk.js.map": "/markshyzer/remote-react/static/js/787.f245bcc0.chunk.js.map"
+    "main.css": "/remote-react/static/css/main.e814bf23.css",
+    "main.js": "/remote-react/static/js/main.8252b2d6.js",
+    "static/js/787.f245bcc0.chunk.js": "/remote-react/static/js/787.f245bcc0.chunk.js",
+    "index.html": "/remote-react/index.html",
+    "main.e814bf23.css.map": "/remote-react/static/css/main.e814bf23.css.map",
+    "main.8252b2d6.js.map": "/remote-react/static/js/main.8252b2d6.js.map",
+    "787.f245bcc0.chunk.js.map": "/remote-react/static/js/787.f245bcc0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e814bf23.css",
-    "static/js/main.f2e1b3f9.js"
+    "static/js/main.8252b2d6.js"
   ]
 }
