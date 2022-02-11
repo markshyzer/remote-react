@@ -1,15 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { RemoteContext } from "../../App";
 
-// import './Menu.css';
-// import Settings from '../Settings/Settings'
 
-function Settings(props) {
-  const {settings, code_list, buttons, setButtons} = useContext(RemoteContext)
-  // setButtons((buttons) => ({...buttons, [buttons[0].id] :'doodley doo'}))
-  // console.log(buttons)
-
-  // console.log('settings receiving context ', settings)
+function Settings() {
+  const {settings, setMessage} = useContext(RemoteContext)
 
   const [tv_ip, setIP] = useState(() =>
     window.localStorage.getItem('IP') || ''
@@ -23,8 +17,8 @@ function Settings(props) {
   useEffect(() => {
     window.localStorage.setItem('IP', tv_ip);
     window.localStorage.setItem('key', preshared_key)
+    console.log('setitem')
   })
-
 
   return (
     <div className={settings.displaySettings? 'visible' : 'hidden'} id='settings_menu'>
@@ -37,8 +31,7 @@ function Settings(props) {
         <p>This information will be stored in your browser for future use.</p>
         <p>Press <span className='emoji' >&#9881;</span> to close or return to this menu.</p>
         <p>Press <span className='emoji' >&#8286;&#8285;&#8286;</span> to switch between Full and Compact views</p>
-        <p>Use the checkboxes below to customize which sections appear in Compact view</p>
-
+        <p>Tap the buttons below to select which elements should appear in Compact view</p>
     </div>  
       
   );

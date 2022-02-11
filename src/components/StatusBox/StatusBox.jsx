@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useContext} from 'react';
+import { RemoteContext } from "../../App";
 
-function StatusBox(props) {
+
+function StatusBox() {
+    const {message, setMessage} = useContext(RemoteContext)
     const [visibility, setVisibility] = useState(false)
 
     useEffect(() => {
         setVisibility(true)
         setTimeout(setVisibility, 3000, false)
-      }, [props.message])
+      }, [message])
 
   return (  
     <div className={`empty status ${visibility ? '': 'hide'}`} id='status-box'>
-        {props.message}
+        {message}
     </div>
   );
 }

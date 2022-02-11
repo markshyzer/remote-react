@@ -113,7 +113,6 @@ function TextInput (props){
         }
 
 useEffect(()=> {
-
     if (!busy && input){
         setBusy(true)
         processText().then(res => setBusy(res))

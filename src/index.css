@@ -16,8 +16,16 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   color: white;
-  /* justify-content: center; */
 }
+
+.section {
+  max-width: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
 
 p {
   padding: 0 30px;
@@ -31,14 +39,6 @@ p {
   height: 30px;
 }
 
-.section {
-  max-width: inherit;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-}
-
 .label {
   width: 100%;
   padding: 5px 0 5px 10px;
@@ -49,6 +49,7 @@ p {
 .empty {
   width: 82px;
   margin: 5px;
+  position: relative;
   }
 
 
@@ -62,6 +63,7 @@ p {
   text-align: center;
   box-shadow: 2px 2px 4px rgba(5, 5, 5, 0.75);
   height: 20px;
+  position: relative;
 
 }
 
@@ -120,14 +122,13 @@ p {
   height: 40px;
   color: #DDDDDD;
   opacity: 0;
-  transition: opacity 3s;
+  transition: opacity 2s;
 }
 
-#menu{
+/* #menu{
   position: sticky;
   top: 0;
-  background-color: inherit;
-}
+} */
 
 .yellow {
   background-color: yellow;
@@ -176,9 +177,9 @@ p {
   color: black;
 }
 
-.greyed {
+/* .greyed {
   opacity: .30;
-}
+} */
 
 .wrapper {
   display: flex; margin-top: 15px; margin-bottom: 40px;
@@ -195,6 +196,15 @@ p {
   margin-right: 27px;
 }
 
+.edit {
+  border: thin dotted black;
+  box-shadow: none;
+}
 
-
+.inCompactIcon {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+}
 

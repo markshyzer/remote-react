@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import Settings from '../Settings/Settings'
 import StatusBox from '../StatusBox/StatusBox'
 import { RemoteContext } from "../../App";
 
-function Menu(props) {
-    const {settings} = useContext(RemoteContext)
+function Menu() {
+    const {settings, message} = useContext(RemoteContext)
 
     function toggleDisplaySettings(){
         settings.toggleSetting('displaySettings', !settings.displaySettings)
@@ -16,11 +16,10 @@ function Menu(props) {
     }
 
   return (
-
     <div>
         <div className='section' id='menu'>
             <div className='empty emoji' id='settings' onClick={() => toggleDisplaySettings()}>&#9881;</div>
-            <StatusBox message={props.message}/>
+            <StatusBox message={message}/>
             <div className='empty emoji' id='full-compact' onClick={toggleFullView}> &#8286;&#8285;&#8286;</div>
         </div>
         <Settings className='section'/>
