@@ -4,6 +4,8 @@
 
 This is a React refactor of my [virtual remote](https://github.com/markshyzer/remote), which uses Sony's IRCC-IP protocol to send commands to any post-2016 Sony Bravia TV from any device on the same wifi network.
 
+### [Use the Remote](https://markshyzer.github.io/remote-react/)
+
 ### Setup
 
 Note: Some browsers take issue with the cross-origin requests required to communicate with your TV, which may mean adjusting your security settings. If you'd rather not, the easiest way around this is to save the page to your machine and open the local copy.
