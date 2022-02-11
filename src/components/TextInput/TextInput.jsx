@@ -85,7 +85,7 @@ function TextInput (props){
     const [input, setInput] = useState(null)
     const [busy, setBusy] = useState(false)
     let stringInput = document.getElementById('string-input')
-    const [c, setC] = useState(Keyboard.start_key)
+    const [character, setCharacter] = useState(Keyboard.start_key)
 
     const starterPromise = Promise.resolve(null);
     let sendMoves = async (moves) => {
@@ -101,7 +101,7 @@ function TextInput (props){
             const current_character = text[Keyboard.string.length]
             await sendMoves(Keyboard.getMoves(current_character))
             .then(() => {
-                setC(current_character)
+                setCharacter(current_character)
                 processText()})
         } 
         return false 
@@ -117,8 +117,9 @@ useEffect(()=> {
   return (
     <div className='section' id='keyboard-input'>
         <div className='wrapper'>
-        <div className='button no-hover' id='current-value'>{c}</div>
+        <div className='button no-hover' id='current-value'>{character}</div>
         <input className='input-text' id='string-input' type="text" onChange={(e) => setInput(e.target.value)}></input>
+        <div className='button' id='clear'>&#9746;</div>
         </div>
     </div>
   );
