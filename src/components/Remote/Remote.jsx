@@ -1,5 +1,3 @@
-import './Remote.css';
-import Section from '../Section/Section';
 import Menu from '../Menu/Menu';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
@@ -8,7 +6,7 @@ import { RemoteContext } from "../../App";
 
 
 function Remote(props) {
-  const {code_list, buttons, message, setMessage}= useContext(RemoteContext)
+  const {code_list, buttons, setMessage}= useContext(RemoteContext)
 
   function wait(ms, value) {
     return new Promise(resolve => setTimeout(resolve, ms, value));

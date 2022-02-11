@@ -1,18 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react';
 import Remote from './components/Remote/Remote';
 import './App.css';
-// import { RemoteContextProvider } from './Context'
-// import Greeting from './Greeting'
-
 
 const RemoteContext = React.createContext()
-
 const RemoteContextProvider = (props) => {
   const viewSettings = {
     fullViewSetting: true,
     displaySettings: false,
     toggleSetting: (property, value) => {
-      // console.log('Toggle Triggered')
       setSettings(
         {...settings, [property]: value}
       );
@@ -181,8 +176,6 @@ const RemoteContextProvider = (props) => {
     ]
   const [buttons, setButtons] = useState(standardButtons)
   const [message, setMessage] = useState()
-
-  // console.log('SETTINGS', settings)
   return (
     <RemoteContext.Provider value={{settings, code_list, buttons, setButtons, message, setMessage}}>
       {props.children}
@@ -191,17 +184,11 @@ const RemoteContextProvider = (props) => {
 }
 
 function App() {
-  // const acontext = useContext(Context)
-  // console.log('context', acontext.fullView)
-  
-
-  // console.log(message)
   return (
     <div>
       <RemoteContextProvider>
         <Remote/>
       </RemoteContextProvider>
-    {/* <Greeting /> */}
     </div>
   );
 }
